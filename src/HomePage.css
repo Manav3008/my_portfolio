@@ -6,7 +6,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
@@ -21,53 +21,90 @@
     padding: 1rem 3%;
     box-sizing: border-box;
   }
-  
-  .hero {
-    text-align: center;
-    max-width: 1200px;
+  .content {
+    display: flex;
+    align-items: center; /* This will vertically center align the text and image */
+    justify-content: space-between; /* This will add space between the text block and image */
   }
   
+  .hero {
+    flex: 1;
+    text-align: left;
+    /* max-width: 1200px; */
+  }
+
+  
   .hero h1 {
-    font-size: 4rem;
-    margin-bottom: 1rem;
+    font-size: 3rem; /* larger font size */
+  font-weight: bold; 
+    text-align: left;
+    padding-left: 5%;
   }
   
   .hero p {
-    font-size: 1.25rem;
-    line-height: 1.5;
-    margin-bottom: 2rem;
+    text-align: left;
+    font-size: 1.5rem;
+    line-height: 1.8;
+    max-width: 600px; /* don't let the text stretch too wide */
+    padding-left: 5%;
+
+  
+  }
+
+  .image-container {
+    flex: 1; /* This will allow the image to grow and fill the space */
+    text-align: right; /* This aligns the image to the right of its container */
+    max-width: 50%; /* Adjust max-width as necessary */
+    max-height: 50px; /* Adjust the max-height as needed */
+    padding-bottom: 30%;
+    padding-left: 5%;
+
+
   }
   
   .contact-button {
-    border: none;
-    background-color: white;
-    color: black;
+    border: 2px solid white;
+    background-color: transparent;
+    color: white;
     padding: 10px 20px;
     text-transform: uppercase;
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    float: right;
+    text-decoration: none;
+
   }
   
   .contact-button:hover {
     background-color: #555;
     color: white;
   }
+
   
   .about-button {
     text-decoration: none;
-    color: white;
-    background-color: transparent;
-    border: 2px solid white;
-    padding: 10px 20px;
-    font-weight: bold;
-    transition: all 0.3s ease;
+  color: palevioletred;
+  background-color: transparent;
+  padding: 10px 20px;
+  font-weight: bold;
+  position: relative; /* Needed to position the pseudo-element */
+  transition: all 0.3s ease;
+  border: none;
+  padding-left: 5%;
+
+  }
+
+  .about-button::after {
+    content: '>'; /* This is the content you're adding: the '>' character */
+    color: palevioletred; /* Set the color if different from the link text */
+    margin-left: 10px; /* Space between the link text and the '>' character */
+    transition: transform 1.0s ease; /* Transition for the hover effect */
   }
   
-  .about-button:hover {
-    background-color: white;
-    color: black;
-  }
+  .about-button:hover::after {
+    content: 'v';
+}
   
   .footer {
     position: absolute;
@@ -100,5 +137,9 @@
     .contact-button, .about-button {
       padding: 8px 16px;
     }
+  }
+
+  .navbar .contact-button {
+    margin-left: auto;
   }
   
